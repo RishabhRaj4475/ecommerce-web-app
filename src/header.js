@@ -6,47 +6,47 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "./stateProvider";
 
 function Header() {
-
-  const [{basket} , dispatch ] = useStateValue();
-
+  const [{ basket }, dispatch] = useStateValue();
 
   return (
     <div className="header">
-      <Link to = "/">
+      <Link to="/">
         <img
-          className="header__logo"
+          className="headerlogo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-          alt=""
+          alt="amazon-logo"
         />
       </Link>
 
-      <div className="header__search">
-        <input className="header__searchInput" type="text" />
-        <SearchIcon className="header__searchIcon" />
-        {/*Logo*/}
+      <div className="headersearch">
+        <input type="text" className="headersearchinput" />
+        <SearchIcon className="headerSearchIcon" />
       </div>
-      <div className="header__nav">
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello Guest</span>
-          <span className="header__optionLineTwo">Sign in</span>
-        </div>
 
-        <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">Orders</span>
-        </div>
-
-        <div className="header__option">
-          <span className="header__optionLineOne">Your</span>
-          <span className="header__optionLineTwo">Prime</span>
-        </div>
-        <Link to = "/checkout">
-        <div className="header__shoppingBasket">
-          <ShoppingBasketIcon />
-          <span className="header__optionLineTwo header__basketCount">{basket?.lenght}</span>
-        </div>
+      <div className="headernav">
+        <Link to="/login">
+          <div className="headeroption">
+            <span className="headerOptionOne">Hello Guest</span>
+            <span className="headerOptionTwo">Sign In</span>
+          </div>
         </Link>
-        
+        <div className="headeroption">
+          <span className="headerOptionOne">Returns</span>
+          <span className="headerOptionTwo">& Orders</span>
+        </div>
+        <div className="headeroption">
+          <span className="headerOptionOne">Your</span>
+          <span className="headerOptionTwo">Prime</span>
+        </div>
+
+        <Link to="/checkout">
+          <div className="headeroptionBasket">
+            <ShoppingBasketIcon />
+            <span className="headerOptionTwo headerBasketCount">
+              {basket?.length}
+            </span>
+          </div>
+        </Link>
       </div>
     </div>
   );
